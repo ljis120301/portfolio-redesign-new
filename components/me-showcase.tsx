@@ -2,6 +2,7 @@ import React from 'react';
 import useScreenSize from '../hooks/use-screen-size';
 import PixelTrail from '../fancy/components/background/pixel-trail';
 import { useTheme } from '../components/theme-provider';
+import ContactModal from './contact-modal';
 
 interface MeShowcaseProps {
   text: string;
@@ -58,12 +59,7 @@ export default function MeShowcase({ text, isTyping, theme }: MeShowcaseProps) {
             >
               View My Work
             </a>
-            <a
-              href="#contact"
-              className="px-6 py-3 border-2 border-[color:var(--color-claude-salmon)] rounded-full font-medium text-foreground hover:bg-[color:var(--color-claude-salmon)] hover:bg-opacity-10 transition-colors duration-300"
-            >
-              Contact Me
-            </a>
+            <ContactModal />
           </div>
           
           <div className="flex gap-6 mt-8">
