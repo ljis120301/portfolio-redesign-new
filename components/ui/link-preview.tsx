@@ -96,6 +96,8 @@ export const LinkPreview = ({
           <Link 
             href={url}
             className={cn("text-black dark:text-white underline decoration-dotted relative", className)}
+            target="_blank"
+            rel="noopener noreferrer"
           >
             {children}
           </Link>

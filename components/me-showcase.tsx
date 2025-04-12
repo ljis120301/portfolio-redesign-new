@@ -22,7 +22,7 @@ export default function MeShowcase({ text, isTyping, theme }: MeShowcaseProps) {
     BeeBlog: "https://bee.whoisjason.me",
     Github: "https://github.com/ljis120301",
     Reddit: "https://reddit.com/user/ljis120301",
-    Discord: "discord.com/users/238064010044506123",
+    Discord: "https://discord.com/users/238064010044506123",
     BGP: "https://bgp.whoisjason.me",
     Linux: "https://en.wikipedia.org/wiki/Linux",
     SVB: "https://sunvalleybroadband.com/",
