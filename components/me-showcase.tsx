@@ -11,7 +11,7 @@ export default function MeShowcase({ text, isTyping, theme }: MeShowcaseProps) {
   
   return (
     <div className="relative z-20 flex flex-col items-center justify-start min-h-screen px-6 py-24 mx-auto">
-      <div className="container max-w-4xl mb-96">
+      <div className="container max-w-4xl mb-96 scroll-mt-32" id="about">
         <div className="flex flex-col items-center space-y-8 text-center">
           <div className={`inline-block p-2 ${isDark ? 'bg-claude-salmon/50' : 'bg-claude-salmon/70'} rounded-full mb-4 transition-colors duration-300`}>
             <div className={`w-[120px] h-[120px] rounded-full border-4 border-claude-salmon ${isDark ? 'bg-claude-salmon/20' : 'bg-claude-salmon/30'} flex items-center justify-center ${isDark ? 'text-[#f5f2e8]' : 'text-[#3d3929]'} transition-colors duration-300`}>
@@ -75,7 +75,7 @@ export default function MeShowcase({ text, isTyping, theme }: MeShowcaseProps) {
         </div>
       </div>
       
-      <div className="py-64">
+      <div className="py-64" id="Passions">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold mb-8 hover:underline" style={{color: '#da7756'}}>My Passions</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

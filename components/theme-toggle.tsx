@@ -22,7 +22,7 @@ export function ThemeToggle() {
   return (
     <motion.button
       onClick={toggleTheme}
-      className="fixed top-4 right-4 z-[9999] flex h-10 w-10 items-center justify-center rounded-full"
+      className="relative h-full w-full flex items-center justify-center rounded-full overflow-hidden"
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       aria-label="Toggle theme"
@@ -30,7 +30,7 @@ export function ThemeToggle() {
       {/* Background layer */}
       <motion.div
         className={`
-          absolute inset-0 rounded-full 
+          absolute inset-0 rounded-full pointer-events-none
           ${theme === 'light' ? 'bg-[#F5F5F6]' : 'bg-[#2A2B32]'}
         `}
         animate={{
@@ -41,7 +41,7 @@ export function ThemeToggle() {
       />
       
       {/* Icon container */}
-      <div className="relative h-6 w-6">
+      <div className="relative h-6 w-6 pointer-events-none">
         <AnimatePresence mode="wait">
           <motion.div
             key={theme}
@@ -62,7 +62,7 @@ export function ThemeToggle() {
 
       {/* Subtle border animation */}
       <motion.div
-        className="absolute inset-0 rounded-full border"
+        className="absolute inset-0 rounded-full border pointer-events-none"
         animate={{
           borderColor: theme === 'light' ? 'rgba(42,43,50,0.1)' : 'rgba(245,245,246,0.1)',
           scale: isHovered ? 1.15 : 1

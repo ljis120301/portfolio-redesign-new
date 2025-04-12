@@ -1,5 +1,14 @@
+@import "tailwindcss/preflight";
+@tailwind utilities;
+
 @import "tailwindcss";
 @import "tw-animate-css";
+
+@theme {
+  --color-claude-salmon: #FF8B7B;
+  --color-claude-beige: #F5F2E8;
+  --color-claude-text: #3D3929;
+}
 
 @custom-variant dark (&:is(.dark *));
 

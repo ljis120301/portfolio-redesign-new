@@ -1,6 +1,6 @@
-import useScreenSize from "@/hooks/use-screen-size"
-import PixelTrail from "@/fancy/components/background/pixel-trail"
-import { useTheme } from "@/components/theme-provider"
+import useScreenSize from "../../hooks/use-screen-size"
+import PixelTrail from "./background/pixel-trail"
+import { useTheme } from "../../components/theme-provider"
 import Link from "next/link"
 
 const PixelTrailDemo: React.FC = () => {
