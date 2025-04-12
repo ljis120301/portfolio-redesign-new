@@ -1,3 +1,13 @@
+/* Load Overused Grotesk variable font - the font used in the example */
+@font-face {
+  font-family: 'Overused Grotesk';
+  src: url('/fonts/OverusedGrotesk-VF.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900&display=swap');
 @import "tailwindcss/preflight";
 @tailwind utilities;
 
@@ -194,4 +204,10 @@
   .xs\:flex {
     display: flex;
   }
+}
+
+/* Variable font styles */
+.font-overused-grotesk {
+  font-family: 'Overused Grotesk', 'Inter', sans-serif;
+  font-variation-settings: 'wght' 400, 'slnt' 0;
 }

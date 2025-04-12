@@ -19,6 +19,8 @@ module.exports = {
       fontFamily: {
         sans: ['var(--font-inter)'],
         mono: ['var(--font-azeret-mono)'],
+        inter: ['Inter', 'sans-serif'],
+        'overused-grotesk': ['Overused Grotesk', 'Inter', 'sans-serif'],
       },
       colors: {
         "claude-salmon": "#FF8B7B",

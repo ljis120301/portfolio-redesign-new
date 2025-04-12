@@ -8,6 +8,7 @@ import ClientLayout from "@/components/client-layout";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const azeretMono = Azeret_Mono({

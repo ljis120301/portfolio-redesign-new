@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { ThemeToggle } from "./theme-toggle";
 import { useState, useCallback } from "react";
+import ContactModal from "./contact-modal";
 
 // Header animations styles
 const headerAnimations = `
@@ -145,8 +146,8 @@ export function Header() {
           </div>
         </Link>
         <div className="flex items-center space-x-4 md:space-x-6">
-          <nav className="hidden md:flex space-x-5">
-            {['Home', 'Projects', 'About', 'Passions', 'Contact'].map((item, index) => (
+          <nav className="hidden md:flex items-center space-x-5">
+            {['Home', 'Projects', 'About', 'Passions'].map((item, index) => (
               <Link 
                 key={index} 
                 href={item === 'Home' ? '/' : 
@@ -159,8 +160,17 @@ export function Header() {
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-claude-salmon/70 group-hover:w-full transition-all duration-200"></span>
               </Link>
             ))}
+            <div className="relative group">
+              <ContactModal triggerClassName="px-2 py-1 text-claude-text dark:text-claude-beige hover:text-claude-salmon dark:hover:text-claude-salmon transition-colors">
+                Contact
+              </ContactModal>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-claude-salmon/70 group-hover:w-full transition-all duration-200"></span>
+            </div>
+            <div className="h-8 w-8 md:h-10 md:w-10 p-0.5 rounded-full bg-claude-beige dark:bg-claude-dark-component transition-colors duration-300">
+              <ThemeToggle />
+            </div>
           </nav>
-          <div className="h-8 w-8 md:h-10 md:w-10 p-0.5 rounded-full bg-claude-beige dark:bg-claude-dark-component transition-colors duration-300">
+          <div className="md:hidden h-8 w-8 md:h-10 md:w-10 p-0.5 rounded-full bg-claude-beige dark:bg-claude-dark-component transition-colors duration-300">
             <ThemeToggle />
           </div>
           <div className="md:hidden">
@@ -191,7 +201,7 @@ export function Header() {
         }`}
       >
         <div className="container mx-auto px-4 flex flex-col space-y-3 border-t border-claude-text/10 dark:border-claude-beige/10 pt-4">
-          {['Home', 'Projects', 'About', 'Passions', 'Contact'].map((item, index) => (
+          {['Home', 'Projects', 'About', 'Passions'].map((item, index) => (
             <Link 
               key={index} 
               href={item === 'Home' ? '/' : 
@@ -204,6 +214,14 @@ export function Header() {
               {item}
             </Link>
           ))}
+          <div 
+            className="px-3 py-2 border-l-2 border-transparent hover:border-claude-salmon/70"
+            onClick={closeMobileMenu}
+          >
+            <ContactModal triggerClassName="text-claude-text dark:text-claude-beige hover:text-claude-salmon dark:hover:text-claude-salmon transition-colors">
+              Contact
+            </ContactModal>
+          </div>
         </div>
       </div>
     </header>

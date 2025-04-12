@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ReactNode } from 'react';
 import { useTheme } from './theme-provider';
 import {
   Modal,
@@ -43,7 +43,12 @@ interface ToastState {
   type: 'success' | 'error';
 }
 
-export default function ContactModal() {
+interface ContactModalProps {
+  children?: ReactNode;
+  triggerClassName?: string;
+}
+
+export default function ContactModal({ children, triggerClassName }: ContactModalProps) {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -118,6 +123,9 @@ export default function ContactModal() {
     setToast({ ...toast, show: false });
   };
 
+  // Default trigger class if not overridden
+  const defaultTriggerClass = "px-6 py-3 border-2 border-[color:var(--color-claude-salmon)] rounded-full font-medium text-foreground hover:bg-[color:var(--color-claude-salmon)] hover:text-white transition-colors duration-300 z-50 cursor-pointer";
+
   return (
     <>
       {toast.show && (
@@ -129,14 +137,14 @@ export default function ContactModal() {
       )}
       
       <Modal>
-        <ModalTrigger className="px-6 py-3 border-2 border-[color:var(--color-claude-salmon)] rounded-full font-medium text-foreground hover:bg-[color:var(--color-claude-salmon)] hover:text-white transition-colors duration-300 z-10 cursor-pointer">
-          Contact Me
+        <ModalTrigger className={triggerClassName || defaultTriggerClass}>
+          {children || "Contact Me"}
         </ModalTrigger>
         
         <ModalBody className={`
           ${isDark ? 'bg-[color:var(--color-claude-dark-component)]' : 'bg-claude-beige-hovered'} 
           text-foreground border-[color:var(--color-claude-salmon)] border-opacity-20
-          max-w-3xl md:max-w-2xl
+          max-w-3xl md:max-w-2xl z-50
         `}>
           <ModalContent>
             <div className="mb-6">

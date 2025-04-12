@@ -12,7 +12,7 @@ export default function Home() {
   const [text, setText] = useState("");
   const [isTyping, setIsTyping] = useState(true);
   const { theme } = useTheme();
-  const fullText = "I build exceptional digital experiences with modern technologies.";
+  const fullText = "Building Responsive, Functional, and Beautiful Web Applications, one line at a time.";
 
   useEffect(() => {
     console.log("Home component mounted");
