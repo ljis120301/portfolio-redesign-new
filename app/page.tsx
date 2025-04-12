@@ -41,7 +41,7 @@ export default function Home() {
   }, [text, isTyping]);
 
   return (
-    <div className={`w-full h-full overflow-auto ${theme === 'light' ? 'bg-[#eeece2] text-[#3d3929]' : 'dark bg-[#1f1e19] text-[#f5f2e8]'} transition-colors duration-300`}>
+    <div className={`w-full h-full overflow-auto ${theme === 'light' ? 'bg-[#eeece2]' : 'dark bg-[#1f1e19]'} text-[#C2C0B6] transition-colors duration-300`}>
       {/* Main content with higher z-index */}
       <div className="relative z-10 min-h-dvh overflow-hidden transition-colors duration-300">
         {/* Debug Border to see if PixelTrail renders */}

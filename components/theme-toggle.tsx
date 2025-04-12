@@ -2,12 +2,10 @@
 
 import { useTheme } from "./theme-provider"
 import { useEffect, useState, useCallback } from "react"
-import { motion, AnimatePresence } from "framer-motion"
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
-  const [isHovered, setIsHovered] = useState(false)
 
   useEffect(() => {
     setMounted(true)
@@ -20,56 +18,25 @@ export function ThemeToggle() {
   if (!mounted) return null
 
   return (
-    <motion.button
+    <button
       onClick={toggleTheme}
-      className="relative h-full w-full flex items-center justify-center rounded-full overflow-hidden"
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
+      className={`
+        relative h-full w-full flex items-center justify-center rounded-full overflow-hidden
+        transition-transform duration-200 active:scale-95
+        ${theme === 'light' ? 'bg-[#F5F5F6] hover:bg-[#ECECF1]' : 'bg-[#1F1E1D] hover:bg-[#40414F]'}
+        border border-solid
+        ${theme === 'light' ? 'border-[rgba(189,195,199,0.2)]' : 'border-[rgba(68,70,84,0.5)]'}
+      `}
       aria-label="Toggle theme"
     >
-      {/* Background layer */}
-      <motion.div
-        className={`
-          absolute inset-0 rounded-full pointer-events-none
-          ${theme === 'light' ? 'bg-[#F5F5F6]' : 'bg-[#2A2B32]'}
-        `}
-        animate={{
-          scale: isHovered ? 1.1 : 1,
-          opacity: isHovered ? 0.9 : 1
-        }}
-        transition={{ duration: 0.2 }}
-      />
-      
-      {/* Icon container */}
-      <div className="relative h-6 w-6 pointer-events-none">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={theme}
-            initial={{ rotate: -45, opacity: 0 }}
-            animate={{ rotate: 0, opacity: 1 }}
-            exit={{ rotate: 45, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="absolute inset-0 flex items-center justify-center"
-          >
-            {theme === 'light' ? (
-              <SunIcon className="h-5 w-5 text-[#2A2B32]" />
-            ) : (
-              <MoonIcon className="h-5 w-5 text-[#F5F5F6]" />
-            )}
-          </motion.div>
-        </AnimatePresence>
+      <div className="relative h-5 w-5 md:h-6 md:w-6 flex items-center justify-center">
+        {theme === 'light' ? (
+          <SunIcon className="h-4 w-4 md:h-5 md:w-5 text-claude-salmon transition-all duration-300" />
+        ) : (
+          <MoonIcon className="h-4 w-4 md:h-5 md:w-5 text-claude-salmon transition-all duration-300" />
+        )}
       </div>
-
-      {/* Subtle border animation */}
-      <motion.div
-        className="absolute inset-0 rounded-full border pointer-events-none"
-        animate={{
-          borderColor: theme === 'light' ? 'rgba(42,43,50,0.1)' : 'rgba(245,245,246,0.1)',
-          scale: isHovered ? 1.15 : 1
-        }}
-        transition={{ duration: 0.2 }}
-      />
-    </motion.button>
+    </button>
   )
 }
 

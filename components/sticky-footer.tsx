@@ -8,8 +8,8 @@ export default function StickyFooter({ theme }: StickyFooterProps) {
   const isDark = theme === 'dark';
   
   return (
-    <div className={`sticky z-0 bottom-0 left-0 w-full h-60 ${isDark ? 'bg-[#2a2924]' : 'bg-white'} flex justify-center items-center transition-colors duration-300`}>
-      <div className="relative overflow-hidden w-full h-full flex justify-end px-12 text-right items-start py-12" style={{color: '#bd5d3a'}}>
+    <div className={`sticky z-0 bottom-0 left-0 w-full h-60 ${isDark ? 'bg-[color:var(--color-claude-dark-dark)]' : 'bg-[color:var(--color-claude-beige)]'} flex justify-center items-center transition-colors duration-300`}>
+      <div className={`relative overflow-hidden w-full h-full flex justify-end px-12 text-right items-start py-12 ${isDark ? 'text-[color:var(--color-claude-salmon)]' : 'text-[color:var(--color-claude-text)]'}`}>
         <div className="flex flex-row space-x-12 sm:space-x-16 md:space-x-24 text-sm sm:text-lg md:text-xl">
           <ul>
             <li className="hover:underline cursor-pointer">Home</li>
@@ -28,7 +28,7 @@ export default function StickyFooter({ theme }: StickyFooterProps) {
             </li>
           </ul>
         </div>
-        <h2 className="absolute bottom-0 left-0 translate-y-1/3 sm:text-[192px] text-[80px] font-bold" style={{color: '#da7756'}}>
+        <h2 className={`absolute bottom-0 left-0 translate-y-1/3 sm:text-[192px] text-[80px] font-bold ${isDark ? 'text-[color:var(--color-claude-salmon)]' : 'text-[color:var(--color-claude-salmon)]'}`}>
           Jason
         </h2>
       </div>

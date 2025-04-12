@@ -10,12 +10,12 @@ const PixelTrailDemo: React.FC = () => {
   console.log("Current theme:", theme)
 
   return (
-    <div className="w-dvw h-dvh bg-claude-beige dark:bg-[#2a2924] text-claude-text dark:text-white flex flex-col font-azeret-mono transition-colors duration-300">
+    <div className="w-dvw h-dvh bg-claude-beige-hovered dark:bg-[color:var(--color-claude-dark-background)] text-claude-text dark:text-claude-beige flex flex-col font-azeret-mono transition-colors duration-300">
       <div className="absolute inset-0 z-0">
         <PixelTrail
           pixelSize={screenSize.lessThan(`md`) ? 16 : 24}
           fadeDuration={500}
-          pixelClassName="bg-black dark:bg-white dark:shadow-md"
+          pixelClassName="bg-claude-dark-component dark:bg-white dark:shadow-md"
         />
       </div>
 
